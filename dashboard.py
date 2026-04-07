@@ -1,4 +1,5 @@
 from tkinter import *
+from course import CourseClass
 
 class RMS:
     def __init__(self, root):
@@ -26,7 +27,7 @@ class RMS:
         M_frame.place(x=10, y=70, width=1340, height=80)
 
         Button(M_frame, text="Course", font=("goudy old style", 15, "bold"),
-               bg="#0b5377", fg="white").place(x=20, y=5, width=200, height=40)
+               bg="#0b5377", fg="white",command=self.add_course).place(x=20, y=5, width=200, height=40)
 
         Button(M_frame, text="Students", font=("goudy old style", 15, "bold"),
                bg="#0b5377", fg="white").place(x=240, y=5, width=200, height=40)
@@ -79,7 +80,10 @@ class RMS:
                        font=("goudy old style", 12),
                        bg="#262626", fg="white")
         footer.pack(side=BOTTOM, fill=X)
-
+        
+    def add_course(self):
+        self.new_win=Toplevel(self.root)
+        self.new_obj=CourseClass(self.new_win)
 
 # -------- RUN APP --------
 if __name__ == "__main__":
